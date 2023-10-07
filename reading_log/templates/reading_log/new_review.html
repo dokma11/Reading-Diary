@@ -1,0 +1,14 @@
+{% extends 'reading_log/base.html' %}
+
+{% block content %}
+
+<p><a href="{% url 'reading_log:book' book.id %}">{{ book }}</a></p>
+
+<p>Add a new review:</p>
+<form action="{% url 'reading_log:new_review' book.id %}" method="post">
+  {% csrf_token %}
+  {{ form.as_div }}
+  <button name="submit">Add Review</button>
+</form>
+
+{% endblock content %}
