@@ -27,10 +27,13 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+LOGIN_REDIRECT_URL = 'reading_log:index'
+LOGOUT_REDIRECT_URL = 'reading_log:index'
 
 # Application definition
 
 INSTALLED_APPS = [
+    'accounts',
     'reading_log',
     'django.contrib.admin',
     'django.contrib.auth',
