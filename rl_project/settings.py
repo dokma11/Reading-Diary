@@ -29,6 +29,7 @@ ALLOWED_HOSTS = []
 
 LOGIN_REDIRECT_URL = 'reading_log:index'
 LOGOUT_REDIRECT_URL = 'reading_log:index'
+LOGIN_URL = 'accounts:login'
 
 # Application definition
 
