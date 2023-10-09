@@ -1,0 +1,28 @@
+{% extends 'reading_log/base.html' %}
+
+{% block page_header %}
+  <h1>{{ bucket_list_item.text }}</h1>
+{% endblock page_header %}
+
+{% block content %}
+
+  <p>
+    <a href="{% url 'reading_log:new_review' bucket_list_item.id %}">Add new note(f.e. price, store where you can find it...)</a>
+  </p>
+
+  {% for review in reviews %}
+    <div class="card mb-3">
+      <!-- Card header with timestamp and edit link -->
+      <h4 class="card-header">
+        {{ review.date_added|date:'M d, Y H:i' }}
+        <small><a href="{% url 'reading_log:edit_review' review.id %}">
+          edit review</a></small>
+      </h4>
+      <!-- Card body with review text -->
+      <div class="card-body">{{ review.text|linebreaks }}</div>
+    </div>
+  {% empty %}
+    <p>There are no notes for this book yet.</p>
+  {% endfor %}
+
+{% endblock content %}

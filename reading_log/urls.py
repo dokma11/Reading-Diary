@@ -16,4 +16,10 @@ urlpatterns = [
     path('new_review/<int:book_id>', views.new_review, name='new_review'),
     # Page for editing a review
     path('edit_review/<int:review_id>', views.edit_review, name='edit_review'),
+    # Bucket list page
+    path('bucket_list/', views.books_in_bucket_list, name='bucket_list'),
+    # Bucket list item page
+    path('bucket_list/<int:book_id>/', views.bucket_list_item, name='bucket_list_item'),
+    # Page for adding a new bucket list item
+    path('new_bucket_list_item/', views.new_bucket_list_item, name='new_bucket_list_item'),
 ]
